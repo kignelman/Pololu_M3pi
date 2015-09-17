@@ -255,17 +255,17 @@ int main(int argc, char ** argv) {
     obj= cvCreateImage(s,IPL_DEPTH_8S , 1 );
     descer= cvCreateImage(s,IPL_DEPTH_8S , 1 );
     
-	/*declaration les coordonnees des cercles qui permetront de detecter
-	  tous les objets circulaire qui seront utilisés */
-	float coodBx=0.0,coodBy=0.0,coodV2x = 0.0,coodV2y = 0.0;
-	float coodRx=0.0,coodRy=0.0,coodObx=0.0,coodOby=0.0, coodVx=0.0,coodVy=0.0;
-	int  dist_ob_bl = 0;
-	float  dist_ros_bl = 0.0;
-	float  dist_ob_ros = 0.0;
-	float  angl_en_bl = 0.0;
-	float  dist_ob_vt = 0.0;
-	/*conersion de pixel en centimetre en fonction de la hauter de la camera (ici 2m du sol)*/
-	float cm =0.202020202;
+    /*declaration les coordonnees des cercles qui permetront de detecter
+    tous les objets circulaire qui seront utilisés */
+    float coodBx=0.0,coodBy=0.0,coodV2x = 0.0,coodV2y = 0.0;
+    float coodRx=0.0,coodRy=0.0,coodObx=0.0,coodOby=0.0, coodVx=0.0,coodVy=0.0;
+    int  dist_ob_bl = 0;
+    float  dist_ros_bl = 0.0;
+    float  dist_ob_ros = 0.0;
+    float  angl_en_bl = 0.0;
+    float  dist_ob_vt = 0.0;
+    /*conersion de pixel en centimetre en fonction de la hauter de la camera (ici 2m du sol)*/
+    float cm = 0.202020202;
 	
     CvPoint positionBleu;
     CvPoint posVert;
@@ -312,30 +312,7 @@ int main(int argc, char ** argv) {
        }
        cvCircle(descer, posVert, cvRound(2), CV_RGB(0xff, 0 , 0), 1, 8, 0);
       } 
-    
-    /*
-    garderLeVert(gx);
-    cvCvtColor(gx, imgG, CV_RGB2GRAY);
-    res = cvHoughCircles(imgG, memSto, CV_HOUGH_GRADIENT, 2, imgG->width / 4, 80, 30, 2, 20);
-    for(i = 0; i < res->total; i++) {
-      float * p = (float *)cvGetSeqElem(res, i);
-      CvPoint pt = cvPoint(cvRound(p[0]), cvRound(p[1]));
-      CvPoint  posVert = cvPoint(cvRound(p[0]), cvRound(p[1]));
-      cvCircle(gx, pt, cvRound(p[2]), CV_RGB(0, 0xff, 0), 0, 8, 0);
-      coodVx =p[0];
-      coodVy =p[1];
-       fill_fvec4(v, p);
-      clusterize_fvec4(b, cb, 10);
-      if(cb->maxelem >= 1) {
-	     for(j = 0; j < 2; j++) {
-	     pt = cvPoint(cvRound(cb->data[4 * j]), cvRound(cb->data[4 * j + 1]));
-	     cvCircle(gb, pt, cvRound(MIN(100.0, fabs(cb->data[4 * j + 2]))), CV_RGB(0, 0xff, 0), 1, 8, 0);
-	     }
-      }
-      cvCircle(descer, posVert, cvRound(2), CV_RGB(0, 0 , 0xff), 1, 8, 0);
-     // printf("les coodonnées du vert(%0.2f , %0.2f)\n", p[0],p[1]);
-    }
-    */
+      
     
     /* traitement de l'image pour garder la couleur bleu et ces coordonnees*/
     gb = cvCloneImage(img);
@@ -467,15 +444,12 @@ int main(int argc, char ** argv) {
     }
     
      /*Affichage des images créées.
-      j'ai mis les autres fenêtre en 
-      commentaire et j'ai laisser que 
-      l'image originale
      */
      
-   // cvShowImage("Garder_vert", gx);
-    //cvShowImage("Objectif", obj);
-    //cvShowImage("Garder_bleu", gb);
-   // cvShowImage("Garder_rose", gr);
+   cvShowImage("Garder_vert", gx);
+   cvShowImage("Objectif", obj);
+   cvShowImage("Garder_bleu", gb);
+   cvShowImage("Garder_rose", gr);
    cvShowImage("Original", descer);
    if( (cvWaitKey(10) & 0xFF) == 27 )
    break;
