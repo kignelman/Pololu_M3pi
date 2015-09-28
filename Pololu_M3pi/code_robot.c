@@ -189,7 +189,7 @@ int main(void) {
     char dirct,chaine[4], comp='C',*recuper = NULL, *ok;
     long val, veri=0;
     char command;
-	/* la boucle qui permet de recuperer la trame cractere par caractere */
+	/* la boucle qui permet de recuperer la trame caractere par caractere */
     while(1){
 	
         for(i=0;i<4;i++){
@@ -199,7 +199,7 @@ int main(void) {
                 chaine[i] = command;
             }
         }
-         /*recuperation de la lettre recu de la trame */ 
+         /*recuperation de la lettre recu dans la trame */ 
         dirct = chaine[0];
         
         /*recuperation du reste de la trame en chaine de caractere */
