@@ -209,7 +209,7 @@ int main(void) {
         val = strtol(recuper, &ok,10);
         
 	    /* cette condition permet d'eviter l'execution de la meme trame plusieurs fois*/        
-        if(dirct != comp && veri != val)
+        if(dirct != comp || veri != val)
         {
         clear();
         printf("%s",chaine);
